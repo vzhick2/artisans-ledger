@@ -2,14 +2,21 @@
 
 ## 🎯 CURRENT ACTIVE TASKS
 
-### Immediate Priority (Phase 1 Polish)
+### Immediate Priority (Phase 1 Blueprint Completion)
 
-- [ ] **NONE** - Phase 1 is complete and stable
+- [ ] **Dashboard**: Implement onboarding/empty states and edge case handling
+- [ ] **Items**: Create detail drawer/modal with tabs (Info, Cost History, Transaction Log)
+- [ ] **Recipes**: Add versioning, "Batches Possible" calculation, and efficiency stats
+- [ ] **Suppliers**: Build detail view with purchase history and archive functionality
+- [ ] **Purchases**: Add unit conversion helper and cost density feedback
+- [ ] **Ledger**: Implement complete transaction history view with drill-down
+- [ ] **Settings**: Build company info, labor rate, and data management sections
 
-### Next Up (When Explicitly Requested)
+### Next Up (Phase 1 Polish)
 
 - [ ] Mobile responsiveness review and improvements
-- [ ] UI/UX polish iterations
+- [ ] Accessibility improvements (keyboard navigation, ARIA labels)
+- [ ] UI/UX polish (status indicators, help tooltips, visual consistency)
 - [ ] Code organization and cleanup
 
 ## 📋 TASK BACKLOG (Future Phases)
@@ -69,7 +76,7 @@
 
 ---
 
-**Last Updated:** July 8, 2025
-**Current Phase:** Phase 1 Complete (UI Prototype) - Ready for Phase 2 (Supabase Integration)
+**Last Updated:** January 15, 2025
+**Current Phase:** Phase 1 Blueprint Implementation (In Progress)
 
-**Note:** Tasks have been updated to reflect the actual project roadmap from the blueprint documents.
+**Status:** Major blueprint features still needed before Phase 1 can be considered complete. Current UI prototype covers ~60% of blueprint requirements.
