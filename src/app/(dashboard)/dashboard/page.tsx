@@ -105,7 +105,12 @@ export default function Dashboard() {
                       </div>
                       <div className="flex items-center gap-2 flex-shrink-0">
                         <Badge variant="destructive">Out of Stock</Badge>
-                        <Button size="sm" variant="outline" onClick={() => router.push('/purchases')}>
+                        <Button 
+                          size="sm" 
+                          variant="outline" 
+                          onClick={() => router.push('/purchases')}
+                          aria-label={`Order ${item.name} now`}
+                        >
                           Order Now
                         </Button>
                       </div>
@@ -135,7 +140,12 @@ export default function Dashboard() {
                       </div>
                       <div className="flex items-center gap-2 flex-shrink-0">
                         <Badge variant="secondary">Low Stock</Badge>
-                        <Button size="sm" variant="outline" onClick={() => router.push('/purchases')}>
+                        <Button 
+                          size="sm" 
+                          variant="outline" 
+                          onClick={() => router.push('/purchases')}
+                          aria-label={`Reorder ${item.name}`}
+                        >
                           Reorder
                         </Button>
                       </div>

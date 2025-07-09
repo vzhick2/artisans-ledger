@@ -95,7 +95,10 @@ export default function Items() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Items</h1>
-        <Button onClick={() => router.push('/items/new')}>
+        <Button 
+          onClick={() => router.push('/items/new')}
+          aria-label="Add new item to inventory"
+        >
           <Plus className="h-4 w-4 mr-2" />
           Add Item
         </Button>
@@ -119,11 +122,12 @@ export default function Items() {
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10"
+                  aria-label="Search items by name or SKU"
                 />
               </div>
             </div>
             <Select value={typeFilter} onValueChange={setTypeFilter}>
-              <SelectTrigger className="w-full md:w-[180px]">
+              <SelectTrigger className="w-full md:w-[180px]" aria-label="Filter items by type">
                 <SelectValue placeholder="Filter by type" />
               </SelectTrigger>
               <SelectContent>
@@ -134,7 +138,7 @@ export default function Items() {
               </SelectContent>
             </Select>
             <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-full md:w-[180px]">
+              <SelectTrigger className="w-full md:w-[180px]" aria-label="Filter items by status">
                 <SelectValue placeholder="Filter by status" />
               </SelectTrigger>
               <SelectContent>
@@ -249,10 +253,15 @@ export default function Items() {
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-2">
-                        <Button size="sm" variant="outline" onClick={(e) => {
-                          e.stopPropagation();
-                          setSelectedItem(item);
-                        }}>
+                        <Button 
+                          size="sm" 
+                          variant="outline" 
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedItem(item);
+                          }}
+                          aria-label={`View details for ${item.name}`}
+                        >
                           <Eye className="h-4 w-4" />
                         </Button>
                         <Button size="sm" variant="outline" onClick={(e) => {

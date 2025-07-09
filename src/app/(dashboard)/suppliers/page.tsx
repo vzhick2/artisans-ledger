@@ -45,7 +45,10 @@ export default function Suppliers() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Suppliers</h1>
-        <Button onClick={() => setShowNewSupplier(!showNewSupplier)}>
+        <Button 
+          onClick={() => setShowNewSupplier(!showNewSupplier)}
+          aria-label={showNewSupplier ? 'Cancel adding supplier' : 'Add new supplier'}
+        >
           <Plus className="h-4 w-4 mr-2" />
           {showNewSupplier ? 'Cancel' : 'Add Supplier'}
         </Button>
@@ -133,10 +136,18 @@ export default function Suppliers() {
                     </TableCell>
                     <TableCell>
                       <div className="flex items-center gap-2">
-                        <Button size="sm" variant="outline">
+                        <Button 
+                          size="sm" 
+                          variant="outline"
+                          aria-label={`Edit ${supplier.name}`}
+                        >
                           <Edit className="h-4 w-4" />
                         </Button>
-                        <Button size="sm" variant="outline">
+                        <Button 
+                          size="sm" 
+                          variant="outline"
+                          aria-label={`Archive ${supplier.name}`}
+                        >
                           <Archive className="h-4 w-4" />
                         </Button>
                       </div>

@@ -15,11 +15,13 @@ import { ArrowLeft, Package, Save, Loader2, AlertCircle } from 'lucide-react';
 import { itemSchema, type ItemFormData } from '@/lib/validations';
 import { useToast } from '@/hooks/use-toast';
 import { useFormHotkeys } from '@/hooks/use-hotkeys';
+import { useFocusManagement } from '@/hooks/use-accessibility';
 
 export default function NewItem() {
   const router = useRouter();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { focusFirstError } = useFocusManagement();
 
   const {
     register,
@@ -69,6 +71,10 @@ export default function NewItem() {
     }
   };
 
+  const onError = () => {
+    focusFirstError(errors);
+  };
+
   // Add form hotkeys
   useFormHotkeys(
     () => handleSubmit(onSubmit)(),
@@ -104,7 +110,7 @@ export default function NewItem() {
         </CardHeader>
         <CardContent>
           <FormErrorBoundary>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit, onError)} className="space-y-6">
             {/* Basic Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
