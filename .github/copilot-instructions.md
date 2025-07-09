@@ -82,6 +82,14 @@ This is a comprehensive inventory management system for artisan food producers. 
 - **REMEMBER** we have a Vercel alias: `artisans-ledger.vercel.app`
 - **MAINTAIN** existing UI patterns and don't break working functionality
 - **CHECK** project status in docs/ folder before making major changes
+- **CONTINUOUSLY** look for opportunities to improve code quality, performance, and user experience
+
+## AI Collaboration Guidelines
+- **Never assume perfection**: Always look for potential improvements
+- **Question "final" states**: Software is never truly final, always evolving
+- **Suggest enhancements**: Proactively identify areas for optimization
+- **Verify thoroughly**: Test changes and consider edge cases
+- **Iterate responsibly**: Make incremental improvements while maintaining stability
 
 ## 🚨 CRITICAL DEPENDENCIES - DO NOT REMOVE
 **These packages are part of the planned tech stack and should NEVER be removed:**
@@ -105,6 +113,13 @@ This is a comprehensive inventory management system for artisan food producers. 
 
 ## Phase Status - READ THIS FIRST
 - **Current Phase**: Phase 1 (UI Prototype with mock data)
-- **Completed**: All forms with validation, toast notifications, accessibility
-- **DO NOT**: Add database integration, authentication, or backend APIs
-- **FOCUS**: UI/UX polish, form validation, accessibility, performance
+- **Phase 1 Status**: Core objectives met, ready for Phase 2 or continued iteration
+- **Always look for**: Improvements, optimizations, bug fixes, and enhancements
+- **DO NOT**: Add database integration, authentication, or backend APIs without explicit request
+- **FOCUS**: UI/UX improvements, form validation, accessibility, performance optimization
+
+## Development Mindset
+- **Continuous Improvement**: Always consider ways to enhance the codebase
+- **Question Everything**: Challenge assumptions and look for edge cases
+- **Iterate Frequently**: Small improvements are welcome and encouraged
+- **Test Thoroughly**: Verify changes don't break existing functionality
