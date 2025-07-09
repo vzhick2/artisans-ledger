@@ -2,6 +2,12 @@
 
 A comprehensive inventory management system designed specifically for artisan food producers. Track ingredients, recipes, production batches, purchases, and sales with full cost accounting.
 
+## Live Demo
+
+🚀 **Live Application**: [https://artisans-ledger.vercel.app](https://artisans-ledger.vercel.app)
+
+📁 **GitHub Repository**: [https://github.com/vzhick2/artisans-ledger](https://github.com/vzhick2/artisans-ledger)
+
 ## Features
 
 ### 🎯 Dashboard
@@ -57,7 +63,7 @@ A comprehensive inventory management system designed specifically for artisan fo
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/vzhick2/artisans-ledger.git
    cd artisans-ledger
    ```
 
