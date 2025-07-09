@@ -5,6 +5,7 @@
 
 import ErrorBoundary from '@/components/error-boundary';
 import { FloatingActionButton } from '@/components/floating-action-button';
+import { Footer } from '@/components/footer';
 import { Sidebar } from '@/components/sidebar';
 import { memo, Suspense } from 'react';
 
@@ -37,6 +38,9 @@ function AppLayoutComponent({
             </Suspense>
           </div>
         </main>
+        
+        {/* Footer with version and build info */}
+        <Footer />
       </div>
 
       {/* Floating action button for mobile */}
