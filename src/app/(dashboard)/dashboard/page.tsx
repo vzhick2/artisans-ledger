@@ -12,7 +12,7 @@ import { DollarSign, ShoppingCart, FlaskConical, TrendingUp, AlertTriangle, Pack
 export default function Dashboard() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(true);
-  
+
   // Memoize expensive calculations
   const metrics = useMemo(() => calculateDashboardMetrics(), []);
   const lastUpdated = useMemo(() => new Date().toLocaleString(), []);
@@ -44,28 +44,28 @@ export default function Dashboard() {
 
       {/* Metric Cards */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <MetricCard 
+        <MetricCard
           title="Inventory Value"
           value={`$${metrics.inventoryValue.toFixed(2)}`}
           description="Total current inventory"
           icon={DollarSign}
           iconColor="text-green-600"
         />
-        <MetricCard 
+        <MetricCard
           title="Open Purchase Orders"
           value={metrics.openPurchaseOrders.toString()}
           description="Pending orders"
           icon={ShoppingCart}
           iconColor="text-blue-600"
         />
-        <MetricCard 
+        <MetricCard
           title="Batches This Month"
           value={metrics.batchesThisMonth.toString()}
           description="Production runs"
           icon={FlaskConical}
           iconColor="text-purple-600"
         />
-        <MetricCard 
+        <MetricCard
           title="Average Yield"
           value={`${metrics.avgYieldPercentage.toFixed(1)}%`}
           description="Production efficiency"
@@ -252,7 +252,7 @@ function StatusCard({ title, count, color, icon: Icon, onClick }: {
   const classes = colorClasses[color];
 
   return (
-    <div 
+    <div
       className={`p-4 ${classes.bg} ${classes.hover} rounded-lg cursor-pointer transition-colors`}
       onClick={onClick}
     >

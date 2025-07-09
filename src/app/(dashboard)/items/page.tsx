@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { 
+import {
   Sheet,
   SheetContent,
   SheetDescription,
@@ -16,21 +16,21 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { 
-  Table, 
-  TableBody, 
-  TableCell, 
-  TableHead, 
-  TableHeader, 
-  TableRow 
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow
 } from '@/components/ui/table';
 import { sampleItems, Item } from '@/lib/sample-data';
-import { 
-  Search, 
-  Plus, 
-  Edit, 
-  Archive, 
-  Package, 
+import {
+  Search,
+  Plus,
+  Edit,
+  Archive,
+  Package,
   AlertTriangle,
   CheckCircle,
   Eye
@@ -43,7 +43,7 @@ export default function Items() {
   const [typeFilter, setTypeFilter] = useState<string>('all');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
-  
+
   // Handle URL query parameters
   useEffect(() => {
     const status = searchParams.get('status');
@@ -59,13 +59,13 @@ export default function Items() {
   const filteredItems = useMemo(() => {
     return sampleItems.filter(item => {
       const matchesSearch = item.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase()) ||
-                           item.SKU.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
+        item.SKU.toLowerCase().includes(debouncedSearchTerm.toLowerCase());
       const matchesType = typeFilter === 'all' || item.type === typeFilter;
-      const matchesStatus = statusFilter === 'all' || 
-                           (statusFilter === 'in-stock' && item.currentQuantity > item.reorderPoint) ||
-                           (statusFilter === 'low-stock' && item.currentQuantity <= item.reorderPoint && item.currentQuantity > 0) ||
-                           (statusFilter === 'out-of-stock' && item.currentQuantity <= 0);
-      
+      const matchesStatus = statusFilter === 'all' ||
+        (statusFilter === 'in-stock' && item.currentQuantity > item.reorderPoint) ||
+        (statusFilter === 'low-stock' && item.currentQuantity <= item.reorderPoint && item.currentQuantity > 0) ||
+        (statusFilter === 'out-of-stock' && item.currentQuantity <= 0);
+
       return matchesSearch && matchesType && matchesStatus && !item.isArchived;
     });
   }, [debouncedSearchTerm, typeFilter, statusFilter]);
@@ -160,8 +160,8 @@ export default function Items() {
           {/* Mobile Card View */}
           <div className="md:hidden space-y-3">
             {filteredItems.map((item) => (
-              <div 
-                key={item.itemId} 
+              <div
+                key={item.itemId}
                 className="p-4 border rounded-lg hover:bg-accent transition-colors cursor-pointer"
                 onClick={() => setSelectedItem(item)}
               >
@@ -274,7 +274,7 @@ export default function Items() {
               </TableBody>
             </Table>
           </div>
-          
+
           {filteredItems.length === 0 && (
             <div className="text-center py-8 text-muted-foreground">
               <Package className="h-12 w-12 mx-auto mb-4 opacity-50" />
@@ -298,7 +298,7 @@ export default function Items() {
                   {selectedItem.SKU} • {selectedItem.type}
                 </SheetDescription>
               </SheetHeader>
-              
+
               <div className="mt-6 space-y-6">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -318,7 +318,7 @@ export default function Items() {
                     <p className="text-lg">{selectedItem.lastCountedDate.toLocaleDateString()}</p>
                   </div>
                 </div>
-                
+
                 <div className="flex gap-2">
                   <Button onClick={() => console.log('Edit item:', selectedItem.itemId)}>
                     <Edit className="h-4 w-4 mr-2" />

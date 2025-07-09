@@ -19,7 +19,7 @@ const FloatingActionButton = memo(({ className }: FloatingActionButtonProps) => 
 
   const handleAction = useCallback((action: string) => {
     setIsExpanded(false);
-    
+
     switch (action) {
       case 'add-item':
         router.push('/items/new');
@@ -80,12 +80,12 @@ const FloatingActionButton = memo(({ className }: FloatingActionButtonProps) => 
     <>
       {/* Enhanced backdrop with blur */}
       {isExpanded && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 lg:hidden"
           onClick={handleBackdropClick}
         />
       )}
-      
+
       {/* Floating Action Button */}
       <div className="fixed bottom-6 right-6 z-50 lg:hidden">
         <div className="flex flex-col items-end gap-3">
@@ -108,13 +108,12 @@ const FloatingActionButton = memo(({ className }: FloatingActionButtonProps) => 
               ))}
             </div>
           )}
-          
+
           {/* Main FAB with improved design */}
           <button
             onClick={toggleExpanded}
-            className={`p-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 min-h-[56px] min-w-[56px] flex items-center justify-center ${
-              isExpanded ? 'rotate-45 scale-110' : 'hover:scale-105'
-            }`}
+            className={`p-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 min-h-[56px] min-w-[56px] flex items-center justify-center ${isExpanded ? 'rotate-45 scale-110' : 'hover:scale-105'
+              }`}
             aria-label={isExpanded ? 'Close quick actions' : 'Open quick actions'}
           >
             <Plus className="w-6 h-6" />

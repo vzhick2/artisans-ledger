@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://artisans-ledger.vercel.app/sitemap.xml

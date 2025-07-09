@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { memo, useMemo, useCallback, useState, useEffect } from 'react';
-import { 
-  BarChart3, 
-  Package, 
-  ChefHat, 
-  Truck, 
-  ShoppingCart, 
+import {
+  BarChart3,
+  Package,
+  ChefHat,
+  Truck,
+  ShoppingCart,
   FlaskConical,
   Search,
   TrendingUp,
@@ -42,13 +42,13 @@ interface SidebarProps {
 }
 
 // Memoized navigation item component
-const NavigationItem = memo(({ item, isActive, onClick }: { 
-  item: typeof navigation[number]; 
+const NavigationItem = memo(({ item, isActive, onClick }: {
+  item: typeof navigation[number];
   isActive: boolean;
   onClick?: () => void;
 }) => {
   const router = useRouter();
-  
+
   const handleMouseEnter = useCallback(() => {
     // Pre-prefetch the route on hover for better performance
     router.prefetch(item.href);
@@ -61,18 +61,16 @@ const NavigationItem = memo(({ item, isActive, onClick }: {
   return (
     <Link
       href={item.href}
-      className={`group flex items-center px-3 py-3 text-sm font-medium rounded-lg transition-all duration-200 min-h-[48px] ${
-        isActive
+      className={`group flex items-center px-3 py-3 text-sm font-medium rounded-lg transition-all duration-200 min-h-[48px] ${isActive
           ? "bg-primary/10 text-primary border-l-4 border-primary"
           : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-      }`}
+        }`}
       prefetch={false}
       onMouseEnter={handleMouseEnter}
       onClick={handleClick}
     >
-      <item.icon className={`w-5 h-5 mr-3 transition-transform duration-200 ${
-        isActive ? "scale-110" : "group-hover:scale-105"
-      }`} />
+      <item.icon className={`w-5 h-5 mr-3 transition-transform duration-200 ${isActive ? "scale-110" : "group-hover:scale-105"
+        }`} />
       <span className="truncate">{item.name}</span>
     </Link>
   );
@@ -87,12 +85,12 @@ function SidebarComponent({ className, isOpen = false, onClose }: SidebarProps) 
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     const touch = e.touches[0];
     const startX = touch.clientX;
-    
+
     const handleTouchMove = (e: TouchEvent) => {
       const touch = e.touches[0];
       const currentX = touch.clientX;
       const deltaX = currentX - startX;
-      
+
       // If swiping left more than 50px, close the sidebar
       if (deltaX < -50) {
         onClose?.();
@@ -100,12 +98,12 @@ function SidebarComponent({ className, isOpen = false, onClose }: SidebarProps) 
         document.removeEventListener('touchend', handleTouchEnd);
       }
     };
-    
+
     const handleTouchEnd = () => {
       document.removeEventListener('touchmove', handleTouchMove);
       document.removeEventListener('touchend', handleTouchEnd);
     };
-    
+
     document.addEventListener('touchmove', handleTouchMove);
     document.addEventListener('touchend', handleTouchEnd);
   }, [onClose]);
@@ -126,21 +124,21 @@ function SidebarComponent({ className, isOpen = false, onClose }: SidebarProps) 
     <>
       {/* Mobile overlay with improved backdrop */}
       {isOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
           onClick={onClose}
         />
       )}
-      
+
       {/* Sidebar */}
-      <div 
+      <div
         className={cn(
           "flex flex-col h-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-r z-50",
           // Desktop styles - always visible, fixed position
           "lg:fixed lg:inset-y-0 lg:left-0 lg:w-64 lg:translate-x-0 lg:transition-none lg:block",
           // Mobile styles - slide in from left with smooth animation
-          isOpen 
-            ? "fixed inset-y-0 left-0 w-72 transform translate-x-0 transition-transform duration-300 ease-out shadow-2xl" 
+          isOpen
+            ? "fixed inset-y-0 left-0 w-72 transform translate-x-0 transition-transform duration-300 ease-out shadow-2xl"
             : "fixed inset-y-0 left-0 w-72 transform -translate-x-full transition-transform duration-300 ease-in",
           className
         )}
@@ -165,11 +163,11 @@ function SidebarComponent({ className, isOpen = false, onClose }: SidebarProps) 
             <X className="w-5 h-5" />
           </button>
         </div>
-        
+
         <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
           {navigationItems}
         </nav>
-        
+
         {/* Mobile footer with user info placeholder */}
         <div className="lg:hidden px-4 py-3 border-t bg-background/50 backdrop-blur">
           <div className="text-xs text-muted-foreground text-center">
@@ -217,7 +215,7 @@ function SidebarWithMobile({ className }: { className?: string }) {
   return (
     <>
       <MobileHamburger onMenuClick={handleMenuClick} />
-      <SidebarComponent 
+      <SidebarComponent
         className={className}
         isOpen={isMobileOpen}
         onClose={handleClose}

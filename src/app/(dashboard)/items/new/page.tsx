@@ -13,6 +13,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { ArrowLeft, Package, Save, Loader2, AlertCircle } from 'lucide-react';
 import { itemSchema, type ItemFormData } from '@/lib/validations';
 import { useToast } from '@/hooks/use-toast';
+import { useFormHotkeys } from '@/hooks/use-hotkeys';
 
 export default function NewItem() {
   const router = useRouter();
@@ -25,6 +26,7 @@ export default function NewItem() {
     formState: { errors },
     setValue,
     watch,
+    reset,
   } = useForm<ItemFormData>({
     resolver: zodResolver(itemSchema),
     defaultValues: {
@@ -65,6 +67,12 @@ export default function NewItem() {
       setIsSubmitting(false);
     }
   };
+
+  // Add form hotkeys
+  useFormHotkeys(
+    () => handleSubmit(onSubmit)(),
+    () => reset()
+  );
 
   return (
     <div className="space-y-6">
