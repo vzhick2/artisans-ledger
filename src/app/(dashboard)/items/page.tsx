@@ -25,7 +25,6 @@ import {
   TableRow
 } from '@/components/ui/table';
 import { sampleItems, Item } from '@/lib/sample-data';
-import { usePerformanceLogger } from '@/lib/performance-utils';
 import {
   Search,
   Plus,
@@ -132,9 +131,6 @@ export default function Items() {
   const [typeFilter, setTypeFilter] = useState<string>('all');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
-
-  // Performance logging in development
-  usePerformanceLogger('Items Page');
 
   // Handle URL query parameters
   useEffect(() => {

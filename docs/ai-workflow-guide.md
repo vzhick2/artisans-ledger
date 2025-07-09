@@ -71,12 +71,14 @@ git commit -m "feat: implement complete feature X with optimizations"
 - **Mobile**: FloatingActionButton, responsive design
 - **Documentation**: Complete guides and best practices
 
-### 🚧 CONTINUE ITERATION ON:
-1. **Bundle Size**: Implement dynamic imports for heavy components
-2. **Virtual Scrolling**: For large item lists (1000+ items)
+### 🚧 AVAILABLE FOR FUTURE ITERATION:
+1. **Bundle Size**: Dynamic imports for heavy components (when needed)
+2. **Virtual Scrolling**: For large item lists (if 1000+ items become an issue)
 3. **Image Optimization**: Lazy loading with progressive enhancement
 4. **Service Workers**: Background sync and caching
 5. **Database Integration**: Prepare for Supabase Phase 2
+
+**Note:** These are potential optimizations, not current tasks.
 
 ## 🛠️ FAST DEVELOPMENT COMMANDS
 
@@ -109,7 +111,7 @@ npx tsc --noEmit
 
 ## 🎮 AI COLLABORATION PATTERNS
 
-### Effective Prompts for Speed
+### Effective Prompts for Speed (EXAMPLES ONLY)
 ```
 ✅ "Continue with performance optimizations"
 ✅ "Implement virtual scrolling for items list"
@@ -119,6 +121,8 @@ npx tsc --noEmit
 ❌ "Can you help me with..." (too vague)
 ❌ Long explanations (wastes time)
 ```
+
+**⚠️ IMPORTANT:** These are EXAMPLE prompts to demonstrate effective communication patterns. They are NOT tasks to be implemented automatically.
 
 ### Context Management
 - Keep current file context visible
