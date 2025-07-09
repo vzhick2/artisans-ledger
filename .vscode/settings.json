@@ -27,6 +27,10 @@
         "scminput": false
     },
     "github.copilot.editor.enableAutoCompletions": true,
+    "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+    "github.copilot.chat.contextFiles": [
+        ".github/copilot-instructions.md"
+    ],
     "workbench.colorTheme": "Default Dark Modern",
     
     // AI-Optimized Development Settings
