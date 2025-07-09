@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build:fast",
+  "devCommand": "npm run dev",
+  "installCommand": "npm ci",
+  "framework": "nextjs",
+  "functions": {
+    "app/**/*.{ts,tsx,js,jsx}": {
+      "maxDuration": 10
+    }
+  },
+  "build": {
+    "env": {
+      "NEXT_TELEMETRY_DISABLED": "1",
+      "SKIP_TYPE_CHECK": "true"
+    }
+  },
+  "alias": "artisans-ledger.vercel.app",
+  "crons": []
+}
