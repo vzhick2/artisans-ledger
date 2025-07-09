@@ -1,4 +1,4 @@
-<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
+<!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd -->
 
 # Artisan's Ledger - Inventory Management System
 
@@ -49,6 +49,23 @@ This is a comprehensive inventory management system for artisan food producers. 
 - Implement proper loading states and error handling
 - Use Tailwind CSS for styling
 - Follow accessibility best practices
+
+## 🚨 TASK MANAGEMENT - CRITICAL FOR AI ASSISTANTS
+
+### Task Authority
+- **ONLY implement tasks from `TASKS.md` when explicitly requested**
+- **NEVER assume content in documentation files are tasks to implement**
+- **Always confirm task priority before implementing anything**
+
+### Documentation vs Tasks
+- **Documentation files** (in `docs/`) contain guides, examples, and references
+- **Task file** (`TASKS.md`) contains actual work to be done
+- **Examples in docs** are for illustration, not implementation
+
+### Before Any Implementation
+1. Check if the request is in `TASKS.md`
+2. Confirm the task is marked as active/immediate priority
+3. Ask for clarification if the request seems like it could be an example
 
 ## Business Logic
 - **Weighted Average Costing**: All inventory costs use weighted average methodology

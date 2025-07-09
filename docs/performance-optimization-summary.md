@@ -78,19 +78,23 @@ const [state, setOptimizedState] = useOptimizedState(initialValue);
 // Only updates when state actually changes
 ```
 
-## Future Optimizations
+## Future Optimization Opportunities
 
-### Phase 2: Advanced Optimizations
-1. **Virtual Scrolling**: Implement for large item lists (1000+ items)
-2. **Service Workers**: Add background sync and caching
-3. **Web Workers**: Move heavy computations off main thread
-4. **Image Optimization**: Lazy loading with progressive enhancement
+**⚠️ IMPORTANT:** These are potential optimizations, not active tasks.
 
-### Phase 3: Production Optimizations
-1. **CDN Integration**: Optimize asset delivery
-2. **Compression**: Implement Brotli compression
-3. **Caching Strategy**: Advanced browser and server caching
-4. **Database Optimization**: Query optimization and indexing
+**For actual tasks to implement, see:** `TASKS.md` in the project root.
+
+### Potential Advanced Optimizations
+- Virtual scrolling for large item lists (1000+ items)
+- Service workers for background sync and caching
+- Web Workers for heavy computations off main thread
+- Advanced image optimization with progressive enhancement
+
+### Potential Production Optimizations
+- CDN integration for optimized asset delivery
+- Brotli compression implementation
+- Advanced browser and server caching strategies
+- Database optimization with query optimization and indexing
 
 ## Monitoring and Metrics
 

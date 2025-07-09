@@ -165,23 +165,20 @@ git add . && git commit -m "snapshot" && git push
 
 ## 🎯 NEXT PRIORITIES
 
-### Phase 2A: Performance (High Impact)
-- [ ] Dynamic imports for form components (30% bundle reduction)
-- [ ] Virtual scrolling for items (handles 1000+ items)
-- [ ] Image lazy loading with intersection observer
-- [ ] Web Workers for heavy calculations
+**⚠️ IMPORTANT:** This section describes workflow patterns, not active tasks. 
 
-### Phase 2B: User Experience
-- [ ] Service worker for offline support
-- [ ] Progressive enhancement
-- [ ] Advanced animations and transitions
-- [ ] Keyboard navigation improvements
+**For actual tasks to implement, see:** `TASKS.md` in the project root.
 
-### Phase 2C: Production Ready
-- [ ] Supabase integration
-- [ ] Authentication flow
-- [ ] Error reporting and analytics
-- [ ] Deployment optimization
+### Workflow Phases (Examples)
+- **Phase 2A**: Performance optimization workflow
+- **Phase 2B**: User experience enhancement workflow  
+- **Phase 2C**: Production readiness workflow
+
+### Development Approach
+- Focus on one area at a time
+- Use rapid iteration with frequent commits
+- Clean up and refactor in dedicated sessions
+- Always verify changes don't break existing functionality
 
 ## 🚨 BOTTLENECK ELIMINATION
 
@@ -199,12 +196,14 @@ git add . && git commit -m "snapshot" && git push
 ### Quick Session Notes
 ```
 ## [DATE] - [TIME]
-**Focus:** Performance optimization
-**Completed:** Component memoization, lazy loading setup
-**Next:** Virtual scrolling implementation
-**Issues:** None
-**Commits:** 3 (feat: memoization, perf: lazy loading, docs: update)
+**Focus:** [Area of work]
+**Completed:** [What was accomplished]
+**Next:** [Next session focus]
+**Issues:** [Any blockers or concerns]
+**Commits:** [Number and brief description]
 ```
+
+**Note:** This is a template for logging work, not actual tasks.
 
 ## 🎪 RAPID ITERATION CHECKLIST
 
