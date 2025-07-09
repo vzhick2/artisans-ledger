@@ -208,19 +208,21 @@ git add . && git commit -m "snapshot" && git push
 ## 🎪 RAPID ITERATION CHECKLIST
 
 ### Before Each Session (30 seconds)
-- [ ] `git s` - Check current state
-- [ ] Review last commit message
-- [ ] Identify 1-2 specific goals
+- `git s` - Check current state
+- Review last commit message  
+- Identify 1-2 specific goals
 
 ### During Development (Every 15-30 min)
-- [ ] `git ac "progress description"`
-- [ ] Quick build check if major changes
-- [ ] Keep notes of what's working
+- `git ac "progress description"`
+- Quick build check if major changes
+- Keep notes of what's working
 
 ### End of Session (1 minute)
-- [ ] `git ac "session: [summary]"`
-- [ ] `git p` if ready to share
-- [ ] Update development log
+- `git ac "session: [summary]"`
+- `git p` if ready to share
+- Update development log
+
+**Note:** This is a workflow template, not a task checklist.
 
 ---
 

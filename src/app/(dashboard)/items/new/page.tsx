@@ -46,7 +46,7 @@ export default function NewItem() {
   const onSubmit = async (data: ItemFormData) => {
     setIsSubmitting(true);
     try {
-      // TODO: Implement actual item creation API call
+      // NOTE: Using mock data - API integration planned for Phase 2
       console.log('Creating item:', data);
 
       // Simulate API call

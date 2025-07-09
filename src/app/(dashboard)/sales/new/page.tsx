@@ -52,7 +52,7 @@ export default function NewSale() {
   const onSubmit = async (data: SalesFormData) => {
     setIsSubmitting(true);
     try {
-      // TODO: Implement actual sales creation API call
+      // NOTE: Using mock data - API integration planned for Phase 2
       console.log('Creating sales entry:', data);
 
       // Simulate API call

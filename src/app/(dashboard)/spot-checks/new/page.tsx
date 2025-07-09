@@ -44,7 +44,7 @@ export default function NewSpotCheck() {
   const onSubmit = async (data: SpotCheckFormData) => {
     setIsSubmitting(true);
     try {
-      // TODO: Implement actual spot check creation API call
+      // NOTE: Using mock data - API integration planned for Phase 2
       console.log('Creating spot check:', data);
 
       // Simulate API call

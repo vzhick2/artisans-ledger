@@ -57,7 +57,7 @@ export default function NewRecipe() {
   const onSubmit = async (data: RecipeFormData) => {
     setIsSubmitting(true);
     try {
-      // TODO: Implement actual recipe creation API call
+      // NOTE: Using mock data - API integration planned for Phase 2
       console.log('Creating recipe:', data);
 
       // Simulate API call

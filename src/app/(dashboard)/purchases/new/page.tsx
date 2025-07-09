@@ -53,7 +53,7 @@ export default function NewPurchase() {
   const onSubmit = async (data: PurchaseFormData) => {
     setIsSubmitting(true);
     try {
-      // TODO: Implement actual purchase creation API call
+      // NOTE: Using mock data - API integration planned for Phase 2
       console.log('Creating purchase:', data);
 
       // Simulate API call

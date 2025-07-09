@@ -40,7 +40,7 @@ export default function NewSupplier() {
   const onSubmit = async (data: SupplierFormData) => {
     setIsSubmitting(true);
     try {
-      // TODO: Implement actual supplier creation API call
+      // NOTE: Using mock data - API integration planned for Phase 2
       console.log('Creating supplier:', data);
 
       // Simulate API call

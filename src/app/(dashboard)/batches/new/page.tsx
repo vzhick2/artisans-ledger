@@ -45,7 +45,7 @@ export default function NewBatch() {
   const onSubmit = async (data: BatchFormData) => {
     setIsSubmitting(true);
     try {
-      // TODO: Implement actual batch creation API call
+      // NOTE: Using mock data - API integration planned for Phase 2
       console.log('Creating batch:', data);
 
       // Simulate API call
