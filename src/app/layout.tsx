@@ -1,4 +1,4 @@
-import { ErrorBoundary } from "@/components/error-boundary";
+import ErrorBoundary from "@/components/error-boundary";
 import { GlobalErrorHandler } from "@/components/global-error-handler";
 import { Toaster } from "@/components/ui/toaster";
 import type { Metadata } from "next";

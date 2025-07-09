@@ -8,7 +8,6 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useFocusManagement } from '@/hooks/use-accessibility';
-import { useFormHotkeys } from '@/hooks/use-hotkeys';
 import { useToast } from '@/hooks/use-toast';
 import { itemSchema, type ItemFormData } from '@/lib/validations';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -29,7 +28,6 @@ export default function NewItem() {
     formState: { errors },
     setValue,
     watch,
-    reset,
   } = useForm<ItemFormData>({
     resolver: zodResolver(itemSchema),
     defaultValues: {
@@ -74,12 +72,6 @@ export default function NewItem() {
   const onError = () => {
     focusFirstError(errors);
   };
-
-  // Add form hotkeys
-  useFormHotkeys(
-    () => handleSubmit(onSubmit)(),
-    () => reset()
-  );
 
   return (
     <div className="space-y-6">

@@ -28,51 +28,76 @@
     },
     "github.copilot.editor.enableAutoCompletions": true,
     "workbench.colorTheme": "Default Dark Modern",
-    "files.exclude": {
-        "**/.next": true,
-        "**/node_modules": true,
-        "**/.vercel": true,
-        "**/tsconfig.tsbuildinfo": true,
-        "**/.git": true,
-        "**/dist": true,
-        "**/build": true
-    },
-    "search.exclude": {
-        "**/node_modules": true,
-        "**/.next": true,
-        "**/package-lock.json": true,
-        "**/.git": true,
-        "**/dist": true,
-        "**/build": true
-    },
+    
+    // AI-Optimized Development Settings
+    "editor.inlineSuggest.enabled": true,
+    "editor.inlineSuggest.showToolbar": "always",
+    "editor.accessibilitySupport": "off",
+    "editor.minimap.enabled": false,
+    "editor.occurrencesHighlight": "multiFile",
+    "editor.linkedEditing": true,
+    "editor.hover.delay": 100,
+    "editor.suggestSelection": "first",
+    "editor.wordBasedSuggestions": "matchingDocuments",
+    "emmet.showSuggestionsAsSnippets": true,
+    "emmet.triggerExpansionOnTab": true,
     "emmet.includeLanguages": {
         "javascript": "javascriptreact",
         "typescript": "typescriptreact"
     },
-    "files.associations": {
-        "*.tsx": "typescriptreact",
-        "*.ts": "typescript"
-    },
-    "typescript.inlayHints.parameterNames.enabled": "all",
-    "typescript.inlayHints.variableTypes.enabled": true,
+    
+    // Enhanced TypeScript/React Development
+    "typescript.preferences.includePackageJsonAutoImports": "on",
+    "typescript.suggest.includeAutomaticOptionalChainCompletions": true,
+    "typescript.suggest.includeCompletionsForImportStatements": true,
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "typescript.inlayHints.enumMemberValues.enabled": true,
     "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact"
-    ],
+    "typescript.inlayHints.parameterNames.enabled": "all",
+    "typescript.inlayHints.parameterTypes.enabled": true,
+    "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+    "typescript.inlayHints.variableTypes.enabled": true,
+    
+    // Auto-close and auto-surround
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingQuotes": "always",
+    "editor.autoSurround": "languageDefined",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    
+    // File Explorer optimizations
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.compactFolders": false,
+    
+    // Tailwind CSS optimizations
     "tailwindCSS.includeLanguages": {
-        "typescript": "javascript",
-        "typescriptreact": "javascript"
+        "plaintext": "html",
+        "javascript": "javascript",
+        "typescript": "typescript",
+        "javascriptreact": "javascriptreact",
+        "typescriptreact": "typescriptreact"
     },
     "tailwindCSS.experimental.classRegex": [
         ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-        ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+        ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
     ],
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 5000,
-    "errorLens.delay": 1000,
-    "errorLens.enabledDiagnosticLevels": ["error"],
-    "errorLens.excludeBySource": ["eslint"]
+    
+    // Copilot context strengthening
+    "github.copilot.advanced": {
+        "contextFiles": [".github/copilot-instructions.md"]
+    },
+    
+    // Search and file operations
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/dist": true,
+        "**/.next": true,
+        "**/out": true
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/**": true,
+        "**/.next/**": true
+    }
 }

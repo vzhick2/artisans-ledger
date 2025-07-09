@@ -1,3 +1,7 @@
+/**
+ * @context: See .github/copilot-instructions.md for project rules
+ * Phase 1: UI Prototype - MUST ASK BEFORE IMPLEMENTING
+ */
 'use client';
 
 import { Badge } from '@/components/ui/badge';

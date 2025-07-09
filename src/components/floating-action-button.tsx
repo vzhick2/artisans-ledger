@@ -1,14 +1,10 @@
 'use client';
 
-import { memo, useState, useCallback } from 'react';
+import { FlaskConical, Package, Plus, Search, ShoppingCart, TrendingUp } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
-import { Plus, Package, FlaskConical, ShoppingCart, Search, TrendingUp, ChefHat, Truck } from 'lucide-react';
+import { memo, useCallback, useState } from 'react';
 
-interface FloatingActionButtonProps {
-  className?: string;
-}
-
-const FloatingActionButton = memo(({ className }: FloatingActionButtonProps) => {
+const FloatingActionButton = memo(() => {
   const pathname = usePathname();
   const router = useRouter();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -36,84 +32,76 @@ const FloatingActionButton = memo(({ className }: FloatingActionButtonProps) => 
       case 'log-sales':
         router.push('/sales/new');
         break;
-      case 'add-recipe':
-        router.push('/recipes/new');
-        break;
-      case 'add-supplier':
-        router.push('/suppliers/new');
-        break;
+      default:
+        // Fallback to most common action
+        router.push('/items/new');
     }
   }, [router]);
 
-  // Close FAB when clicking outside
-  const handleBackdropClick = useCallback(() => {
-    setIsExpanded(false);
-  }, []);
-
-  // Get contextual actions based on current page
+  // Get contextual actions based on current page (blueprint-aligned)
   const getQuickActions = () => {
-    const allActions = [
+    // Core actions mentioned in the blueprint Action Center
+    const coreActions = [
       { id: 'add-item', label: 'Add Item', icon: Package },
-      { id: 'log-batch', label: 'Log Batch', icon: FlaskConical },
       { id: 'new-purchase', label: 'New Purchase', icon: ShoppingCart },
+      { id: 'log-batch', label: 'Log Batch', icon: FlaskConical },
       { id: 'spot-check', label: 'Spot Check', icon: Search },
       { id: 'log-sales', label: 'Log Sales', icon: TrendingUp },
-      { id: 'add-recipe', label: 'Add Recipe', icon: ChefHat },
-      { id: 'add-supplier', label: 'Add Supplier', icon: Truck },
     ];
 
-    // Show most relevant actions first based on current page
+    // Context-aware ordering based on current page
     if (pathname.includes('/items')) {
-      return [allActions[0], allActions[1], allActions[2], allActions[3]]; // Add Item, Log Batch, Purchase, Spot Check
+      return [coreActions[0]!, coreActions[2]!, coreActions[1]!, coreActions[3]!]; // Add Item first
     } else if (pathname.includes('/batches')) {
-      return [allActions[1], allActions[0], allActions[5], allActions[2]]; // Log Batch, Add Item, Add Recipe, Purchase
+      return [coreActions[2]!, coreActions[0]!, coreActions[1]!, coreActions[3]!]; // Log Batch first
     } else if (pathname.includes('/purchases')) {
-      return [allActions[2], allActions[0], allActions[6], allActions[1]]; // Purchase, Add Item, Add Supplier, Log Batch
-    } else if (pathname.includes('/recipes')) {
-      return [allActions[5], allActions[1], allActions[0], allActions[2]]; // Add Recipe, Log Batch, Add Item, Purchase
+      return [coreActions[1]!, coreActions[0]!, coreActions[2]!, coreActions[3]!]; // New Purchase first
+    } else if (pathname.includes('/sales')) {
+      return [coreActions[4]!, coreActions[0]!, coreActions[1]!, coreActions[2]!]; // Log Sales first
     } else {
-      return allActions.slice(0, 4); // Default: first 4 actions
+      return coreActions.slice(0, 4); // Default: first 4 actions
     }
   };
 
   return (
     <>
-      {/* Enhanced backdrop with blur */}
+      {/* Backdrop for mobile */}
       {isExpanded && (
         <div
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 lg:hidden"
-          onClick={handleBackdropClick}
+          className="fixed inset-0 bg-black/20 z-40 lg:hidden"
+          onClick={() => setIsExpanded(false)}
         />
       )}
 
-      {/* Floating Action Button */}
+      {/* Blueprint-aligned Floating Action Button */}
       <div className="fixed bottom-6 right-6 z-50 lg:hidden">
         <div className="flex flex-col items-end gap-3">
-          {/* Expanded Action Buttons with animation */}
+          {/* Quick Actions (aligned with blueprint Action Center) */}
           {isExpanded && (
-            <div className="flex flex-col gap-2 animate-in slide-in-from-bottom-4 duration-300">
+            <div className="flex flex-col gap-2 animate-in slide-in-from-bottom-2 duration-200">
               {getQuickActions().map((action, index) => (
                 <button
                   key={action.id}
                   onClick={() => handleAction(action.id)}
-                  className="flex items-center gap-3 bg-background/95 backdrop-blur-sm border text-foreground px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 min-w-[140px] min-h-[48px] hover:bg-accent"
+                  className="flex items-center gap-3 bg-background border text-foreground px-4 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 min-w-[140px] hover:bg-accent"
                   style={{
-                    animationDelay: `${index * 50}ms`,
+                    animationDelay: `${index * 30}ms`,
                     animationFillMode: 'both'
                   }}
                 >
-                  <action.icon className="w-5 h-5" />
+                  <action.icon className="w-4 h-4" />
                   <span className="text-sm font-medium">{action.label}</span>
                 </button>
               ))}
             </div>
           )}
 
-          {/* Main FAB with improved design */}
+          {/* Main FAB */}
           <button
             onClick={toggleExpanded}
-            className={`p-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-300 min-h-[56px] min-w-[56px] flex items-center justify-center ${isExpanded ? 'rotate-45 scale-110' : 'hover:scale-105'
-              }`}
+            className={`p-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full shadow-lg hover:shadow-xl transition-all duration-200 min-h-[56px] min-w-[56px] flex items-center justify-center ${
+              isExpanded ? 'rotate-45' : 'hover:scale-105'
+            }`}
             aria-label={isExpanded ? 'Close quick actions' : 'Open quick actions'}
           >
             <Plus className="w-6 h-6" />

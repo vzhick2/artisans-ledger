@@ -1,7 +1,7 @@
 # Artisan's Ledger - Inventory Management System
 
 **🏢 INTERNAL BUSINESS APPLICATION**  
-*This is a private, internal business tool designed for a specific artisan food producer and their co-owner. It is not intended for public use, multi-tenancy, or commercial distribution.*
+_This is a private, internal business tool designed for a specific artisan food producer and their co-owner. It is not intended for public use, multi-tenancy, or commercial distribution._
 
 A comprehensive inventory management system designed specifically for artisan food producers. Track ingredients, recipes, production batches, purchases, and sales with full cost accounting.
 
@@ -15,35 +15,41 @@ A comprehensive inventory management system designed specifically for artisan fo
 ## Features
 
 ### 🎯 Dashboard
+
 - Real-time inventory metrics and alerts
 - Action center for low stock items
 - Production and financial overview
 
 ### 📦 Items Management
+
 - Full CRUD for ingredients, packaging, and products
 - Weighted average cost tracking
 - Reorder point management
 - Status tracking (In Stock, Low Stock, Out of Stock)
 
 ### 👨‍🍳 Recipes
+
 - Product formulations with ingredient requirements
 - Batch capacity calculations
 - Production planning
 - Yield tracking
 
 ### 🛒 Purchases
+
 - Spreadsheet-style purchase logging
 - Weighted average cost calculation
 - Supplier management
 - Cost density feedback
 
 ### 🏭 Production Batches
+
 - Production batch tracking
 - Yield calculations
 - Material and labor cost tracking
 - Recipe versioning
 
 ### 📊 Sales & Reporting
+
 - Monthly sales tracking
 - Business intelligence reports
 - Complete transaction ledger
@@ -52,6 +58,7 @@ A comprehensive inventory management system designed specifically for artisan fo
 ## Technology Stack
 
 ### Current (Phase 1 - UI Prototype)
+
 - **Frontend**: Next.js 15+ with TypeScript
 - **UI Components**: shadcn/ui with Tailwind CSS
 - **Forms**: react-hook-form with zod validation
@@ -59,24 +66,28 @@ A comprehensive inventory management system designed specifically for artisan fo
 - **Deployment**: Vercel
 
 ### Future Phases
+
 - **Data Management**: TanStack Query (React Query) and TanStack Table
-- **Database**: Supabase PostgreSQL 
+- **Database**: Supabase PostgreSQL
 - **Authentication**: Supabase Auth
 
 ## Getting Started
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/vzhick2/artisans-ledger.git
    cd artisans-ledger
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
 3. **Run the development server**
+
    ```bash
    npm run dev
    ```
@@ -108,6 +119,7 @@ src/
 ## Current Status
 
 **Phase 1: UI Prototype with Mock Data** 🔄 (In Progress)
+
 - Core navigation and layout ✅
 - Basic dashboard with metrics ✅
 - Items management with filtering ✅
@@ -118,16 +130,19 @@ src/
 - **Status**: ~60% of blueprint requirements complete
 
 **Phase 2: Database Integration** (Next)
+
 - Supabase setup and schema
 - Real data persistence
 - PostgreSQL RPC functions
 
 **Phase 3: Authentication** (Future)
+
 - User management
 - Multi-tenancy
 - Role-based access
 
 **Phase 4: Advanced Features** (Future)
+
 - Advanced reporting
 - Inventory forecasting
 - API integrations
@@ -135,17 +150,21 @@ src/
 ## Business Logic
 
 ### Weighted Average Costing
+
 All inventory costs use weighted average methodology to ensure accurate cost tracking across multiple purchases.
 
 ### Atomic Transactions
+
 All multi-step operations (purchases, batches) are atomic to maintain data integrity.
 
 ### Immutable Ledger
+
 All inventory changes are logged immutably for complete audit trails.
 
 ## Development
 
 ### Code Style
+
 - TypeScript for type safety
 - Next.js App Router patterns
 - shadcn/ui components
@@ -153,6 +172,7 @@ All inventory changes are logged immutably for complete audit trails.
 - Proper form validation with react-hook-form and zod
 
 ### Testing
+
 - Unit tests for business logic
 - E2E tests for critical workflows
 - PostgreSQL function testing
@@ -168,6 +188,7 @@ All inventory changes are logged immutably for complete audit trails.
 ## ⚠️ Important: Dependencies to Preserve
 
 **These packages are part of the planned tech stack and should not be removed:**
+
 - `@tanstack/react-query` & `@tanstack/react-table` - For Phase 2 data management
 - `react-hook-form` & `zod` & `@hookform/resolvers` - Form validation system
 - `lucide-react` - Icon library

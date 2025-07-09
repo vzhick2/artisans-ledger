@@ -1,4 +1,5 @@
 {
+  "_comment": "See .github/copilot-instructions.md - CRITICAL DEPENDENCIES - DO NOT REMOVE",
   "name": "artisans-ledger",
   "version": "1.0.0",
   "private": true,
@@ -25,7 +26,13 @@
     "deploy:preview": "npm run build && npx vercel",
     "reset": "npm run clean && npm run clean:deps",
     "check": "npm run type-check && npm run lint && npm run format:check",
-    "fix": "npm run lint:fix && npm run format"
+    "fix": "npm run lint:fix && npm run format",
+    "gen:component": "node scripts/generate-component.js",
+    "gen:page": "node scripts/generate-component.js",
+    "dev:ai": "npm run type-check && npm run dev",
+    "quick-fix": "npm run lint:fix && npm run format",
+    "preflight": "npm run quick-fix && npm run type-check",
+    "scaffold": "node scripts/generate-component.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",

@@ -1,12 +1,12 @@
+/**
+ * @context: See .github/copilot-instructions.md - MUST ASK BEFORE CHANGES
+ */
 'use client';
 
-import { CommandPalette } from '@/components/command-palette';
-import { ComponentErrorBoundary, PageErrorBoundary } from '@/components/error-boundary';
+import ErrorBoundary from '@/components/error-boundary';
 import { FloatingActionButton } from '@/components/floating-action-button';
-import { KeyboardShortcutsModal } from '@/components/keyboard-shortcuts-modal';
 import { Sidebar } from '@/components/sidebar';
-import { useHotkeys } from '@/hooks/use-hotkeys';
-import { memo, Suspense, useState } from 'react';
+import { memo, Suspense } from 'react';
 
 // Loading component for better UX
 const Loading = () => (
@@ -20,49 +20,29 @@ function AppLayoutComponent({
 }: {
   children: React.ReactNode;
 }) {
-  const [showCommandPalette, setShowCommandPalette] = useState(false);
-  const { hotkeys, showHelpModal, setShowHelpModal } = useHotkeys(() => setShowCommandPalette(true));
-
   return (
     <div className="min-h-screen bg-background">
-      <ComponentErrorBoundary componentName="Sidebar">
+      <ErrorBoundary>
         <Sidebar />
-      </ComponentErrorBoundary>
+      </ErrorBoundary>
 
       {/* Main content area with enhanced mobile/desktop spacing */}
       <div className="flex flex-col min-h-screen lg:ml-64">
         <main className="flex-1 overflow-y-auto p-4 lg:p-6 pb-24 lg:pb-6 pt-20 lg:pt-6 min-h-0">
           <div className="max-w-full mx-auto">
             <Suspense fallback={<Loading />}>
-              <PageErrorBoundary>
+              <ErrorBoundary>
                 {children}
-              </PageErrorBoundary>
+              </ErrorBoundary>
             </Suspense>
           </div>
         </main>
       </div>
 
       {/* Floating action button for mobile */}
-      <ComponentErrorBoundary componentName="Floating Action Button">
+      <ErrorBoundary>
         <FloatingActionButton />
-      </ComponentErrorBoundary>
-
-      {/* Command Palette */}
-      <ComponentErrorBoundary componentName="Command Palette">
-        <CommandPalette 
-          isOpen={showCommandPalette} 
-          onCloseAction={() => setShowCommandPalette(false)} 
-        />
-      </ComponentErrorBoundary>
-
-      {/* Keyboard Shortcuts Modal */}
-      <ComponentErrorBoundary componentName="Keyboard Shortcuts Modal">
-        <KeyboardShortcutsModal
-          isOpen={showHelpModal}
-          onClose={() => setShowHelpModal(false)}
-          hotkeys={hotkeys}
-        />
-      </ComponentErrorBoundary>
+      </ErrorBoundary>
     </div>
   );
 }
