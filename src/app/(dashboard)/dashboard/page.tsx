@@ -1,13 +1,13 @@
 'use client';
 
-import { useMemo, useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { calculateDashboardMetrics } from '@/lib/sample-data';
-import { DollarSign, ShoppingCart, FlaskConical, TrendingUp, AlertTriangle, Package } from 'lucide-react';
+import { AlertTriangle, DollarSign, FlaskConical, Package, ShoppingCart, TrendingUp } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useEffect, useMemo, useState } from 'react';
 
 export default function Dashboard() {
   const router = useRouter();

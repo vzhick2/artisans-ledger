@@ -1,40 +1,39 @@
 'use client';
 
-import { useState, useMemo, useCallback, useEffect, memo } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useDebounce } from 'use-debounce';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle
 } from '@/components/ui/sheet';
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow
 } from '@/components/ui/table';
-import { sampleItems, Item } from '@/lib/sample-data';
+import { Item, sampleItems } from '@/lib/sample-data';
 import {
-  Search,
-  Plus,
-  Edit,
-  Archive,
-  Package,
-  AlertTriangle,
-  CheckCircle,
-  Eye
+    AlertTriangle,
+    Archive,
+    CheckCircle,
+    Edit,
+    Eye,
+    Package,
+    Plus,
+    Search
 } from 'lucide-react';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
+import { useDebounce } from 'use-debounce';
 
 // Memoized components for better performance
 const ItemCard = memo(({ item, onEdit, onArchive, onView }: {

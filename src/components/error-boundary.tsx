@@ -1,11 +1,11 @@
 'use client';
 
-import React from 'react';
-import { AlertTriangle, RefreshCw, Home, Bug } from 'lucide-react';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Alert, AlertDescription } from '@/components/ui/alert';
 import { reportErrorBoundaryError } from '@/lib/error-reporting';
+import { AlertTriangle, Bug, Home, RefreshCw } from 'lucide-react';
+import React from 'react';
 
 interface ErrorBoundaryState {
   hasError: boolean;

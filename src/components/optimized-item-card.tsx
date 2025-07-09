@@ -1,9 +1,9 @@
-import { memo, useMemo, useCallback } from 'react';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Package, AlertTriangle, CheckCircle, Edit, Archive, Eye } from 'lucide-react';
 import { Item } from '@/lib/sample-data';
+import { AlertTriangle, Archive, CheckCircle, Edit, Eye, Package } from 'lucide-react';
+import { memo, useCallback, useMemo } from 'react';
 
 interface OptimizedItemCardProps {
   item: Item;

@@ -69,5 +69,10 @@
     "tailwindCSS.experimental.classRegex": [
         ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
         ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
-    ]
+    ],
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 5000,
+    "errorLens.delay": 1000,
+    "errorLens.enabledDiagnosticLevels": ["error"],
+    "errorLens.excludeBySource": ["eslint"]
 }

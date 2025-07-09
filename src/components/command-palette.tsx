@@ -1,35 +1,34 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
-import { 
-  Dialog, 
-  DialogContent, 
-  DialogDescription, 
-  DialogHeader, 
-  DialogTitle 
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { 
-  Search, 
-  Package, 
-  ChefHat, 
-  Truck, 
-  ShoppingCart, 
-  FlaskConical, 
-  TrendingUp, 
-  BookOpen, 
-  BarChart3, 
-  Settings, 
-  Home,
-  Plus,
-  Eye,
-  Calculator
+import { sampleItems, sampleRecipes, sampleSuppliers } from '@/lib/sample-data';
+import {
+    BarChart3,
+    BookOpen,
+    ChefHat,
+    Eye,
+    FlaskConical,
+    Home,
+    Package,
+    Plus,
+    Search,
+    Settings,
+    ShoppingCart,
+    TrendingUp,
+    Truck
 } from 'lucide-react';
-import { sampleItems, sampleSuppliers, sampleRecipes } from '@/lib/sample-data';
+import { usePathname, useRouter } from 'next/navigation';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 interface CommandPaletteProps {
   isOpen: boolean;

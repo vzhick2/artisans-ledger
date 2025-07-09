@@ -1,13 +1,13 @@
 'use client';
 
-import { ReactNode } from 'react';
-import { 
-  Tooltip, 
-  TooltipContent, 
-  TooltipProvider, 
-  TooltipTrigger 
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger
 } from '@/components/ui/tooltip';
 import { HelpCircle } from 'lucide-react';
+import { ReactNode } from 'react';
 
 interface HelpTooltipProps {
   content: string | ReactNode;

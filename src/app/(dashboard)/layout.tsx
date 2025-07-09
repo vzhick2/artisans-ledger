@@ -1,10 +1,10 @@
 'use client';
 
-import { Sidebar } from '@/components/sidebar';
-import { FloatingActionButton } from '@/components/floating-action-button';
 import { CommandPalette } from '@/components/command-palette';
+import { ComponentErrorBoundary, PageErrorBoundary } from '@/components/error-boundary';
+import { FloatingActionButton } from '@/components/floating-action-button';
 import { KeyboardShortcutsModal } from '@/components/keyboard-shortcuts-modal';
-import { PageErrorBoundary, ComponentErrorBoundary } from '@/components/error-boundary';
+import { Sidebar } from '@/components/sidebar';
 import { useHotkeys } from '@/hooks/use-hotkeys';
 import { memo, Suspense, useState } from 'react';
 

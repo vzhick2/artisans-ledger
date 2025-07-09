@@ -1,21 +1,21 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { FormErrorBoundary } from '@/components/error-boundary';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { FormErrorBoundary } from '@/components/error-boundary';
-import { ArrowLeft, Package, Save, Loader2, AlertCircle } from 'lucide-react';
-import { itemSchema, type ItemFormData } from '@/lib/validations';
-import { useToast } from '@/hooks/use-toast';
-import { useFormHotkeys } from '@/hooks/use-hotkeys';
 import { useFocusManagement } from '@/hooks/use-accessibility';
+import { useFormHotkeys } from '@/hooks/use-hotkeys';
+import { useToast } from '@/hooks/use-toast';
+import { itemSchema, type ItemFormData } from '@/lib/validations';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { AlertCircle, ArrowLeft, Loader2, Package, Save } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 export default function NewItem() {
   const router = useRouter();

@@ -1,24 +1,22 @@
 'use client';
 
-import { useMemo, useCallback, lazy, Suspense, useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { useStableMemo, useStableCallback, useIntersectionObserver } from '@/hooks/use-performance';
+import { useIntersectionObserver, useStableCallback, useStableMemo } from '@/hooks/use-performance';
 import { calculateDashboardMetrics } from '@/lib/sample-data';
-import { 
-  Package, 
-  AlertTriangle, 
-  CheckCircle, 
-  BarChart3, 
-  ShoppingCart, 
-  FlaskConical,
-  TrendingUp,
-  DollarSign,
-  Calendar
+import {
+    AlertTriangle,
+    CheckCircle,
+    DollarSign,
+    FlaskConical,
+    Package,
+    ShoppingCart,
+    TrendingUp
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { lazy, Suspense, useEffect, useMemo, useState } from 'react';
 
 // Lazy load heavy components
 const LazyInventoryOverview = lazy(() => import('./dashboard-inventory-overview'));

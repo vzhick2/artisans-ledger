@@ -1,6 +1,6 @@
-import { useEffect, useCallback, useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
 import { toast } from '@/hooks/use-toast';
+import { usePathname, useRouter } from 'next/navigation';
+import { useCallback, useEffect, useState } from 'react';
 
 export interface Hotkey {
   key: string;
