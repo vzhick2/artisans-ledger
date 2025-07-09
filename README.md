@@ -1,12 +1,16 @@
 # Artisan's Ledger - Inventory Management System
 
+**🏢 INTERNAL BUSINESS APPLICATION**  
+*This is a private, internal business tool designed for a specific artisan food producer and their co-owner. It is not intended for public use, multi-tenancy, or commercial distribution.*
+
 A comprehensive inventory management system designed specifically for artisan food producers. Track ingredients, recipes, production batches, purchases, and sales with full cost accounting.
 
 ## Live Demo
 
-🚀 **Live Application**: [https://artisans-ledger.vercel.app](https://artisans-ledger.vercel.app)
-
+🚀 **Live Application**: [https://artisans-ledger.vercel.app](https://artisans-ledger.vercel.app)  
 📁 **GitHub Repository**: [https://github.com/vzhick2/artisans-ledger](https://github.com/vzhick2/artisans-ledger)
+
+> **Note**: This application is optimized for internal business use only. No SEO optimization, social media integration, or multi-user authentication is included by design.
 
 ## Features
 

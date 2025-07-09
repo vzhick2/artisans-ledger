@@ -2,6 +2,14 @@
 
 # Artisan's Ledger - Inventory Management System
 
+## 🏢 INTERNAL BUSINESS APPLICATION ONLY
+**IMPORTANT**: This is a private, internal business tool designed for a specific artisan food producer and their co-owner. It is NOT intended for:
+- Public use or distribution
+- Multi-tenancy or multiple customers
+- Commercial licensing or SaaS deployment
+- SEO optimization or social media integration
+- Public authentication or user management
+
 ## Project Overview
 This is a comprehensive inventory management system for artisan food producers. The system tracks ingredients, recipes, production batches, purchases, and sales with full cost accounting including weighted average costing.
 
