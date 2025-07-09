@@ -83,6 +83,26 @@ This is a comprehensive inventory management system for artisan food producers. 
 - **MAINTAIN** existing UI patterns and don't break working functionality
 - **CHECK** project status in docs/ folder before making major changes
 
+## 🚨 CRITICAL DEPENDENCIES - DO NOT REMOVE
+**These packages are part of the planned tech stack and should NEVER be removed:**
+- `@tanstack/react-query` - Core data fetching library for Phase 2
+- `@tanstack/react-table` - Advanced table features for Phase 2
+- `react-hook-form` - Form validation (currently in use)
+- `zod` - Schema validation (currently in use)
+- `@hookform/resolvers` - Form validation bridge (currently in use)
+- `lucide-react` - Icon library (currently in use)
+- `tailwind-merge` - Tailwind utility merging (currently in use)
+- `clsx` - Conditional className utility (currently in use)
+- `class-variance-authority` - Component variants (currently in use)
+- All `@radix-ui/*` packages - shadcn/ui components (currently in use)
+- `use-debounce` - Input debouncing (currently in use)
+- `cross-env` - Cross-platform environment variables (currently in use)
+
+**Safe to remove if truly unused:**
+- Any package NOT listed above or in the Technology Stack section
+- Test/development artifacts that aren't part of the core functionality
+- Duplicate or conflicting packages
+
 ## Phase Status - READ THIS FIRST
 - **Current Phase**: Phase 1 (UI Prototype with mock data)
 - **Completed**: All forms with validation, toast notifications, accessibility

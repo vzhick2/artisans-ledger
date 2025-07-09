@@ -163,6 +163,19 @@ All inventory changes are logged immutably for complete audit trails.
 4. Add tests if applicable
 5. Submit a pull request
 
+## ⚠️ Important: Dependencies to Preserve
+
+**These packages are part of the planned tech stack and should not be removed:**
+- `@tanstack/react-query` & `@tanstack/react-table` - For Phase 2 data management
+- `react-hook-form` & `zod` & `@hookform/resolvers` - Form validation system
+- `lucide-react` - Icon library
+- `tailwind-merge` & `clsx` & `class-variance-authority` - Styling utilities
+- All `@radix-ui/*` packages - shadcn/ui component system
+- `use-debounce` - Input performance optimization
+- `cross-env` - Cross-platform environment variables
+
+Only remove packages that are not listed in the Technology Stack section or are genuinely unused development artifacts.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
