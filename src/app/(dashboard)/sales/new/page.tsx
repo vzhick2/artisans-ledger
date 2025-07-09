@@ -15,6 +15,7 @@ import { ArrowLeft, TrendingUp, Save, Loader2, AlertCircle } from 'lucide-react'
 import { salesSchema, type SalesFormData } from '@/lib/validations';
 import { sampleItems } from '@/lib/sample-data';
 import { useToast } from '@/hooks/use-toast';
+import { FormErrorBoundary } from '@/components/error-boundary';
 
 export default function NewSale() {
   const router = useRouter();
@@ -109,7 +110,8 @@ export default function NewSale() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <FormErrorBoundary>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Product and Date */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -281,7 +283,8 @@ export default function NewSale() {
                 )}
               </Button>
             </div>
-          </form>
+            </form>
+          </FormErrorBoundary>
         </CardContent>
       </Card>
     </div>

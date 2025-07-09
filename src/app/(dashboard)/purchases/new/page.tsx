@@ -15,6 +15,7 @@ import { ArrowLeft, ShoppingCart, Save, Loader2, AlertCircle, Plus, Minus } from
 import { purchaseSchema, type PurchaseFormData } from '@/lib/validations';
 import { sampleSuppliers, sampleItems } from '@/lib/sample-data';
 import { useToast } from '@/hooks/use-toast';
+import { FormErrorBoundary } from '@/components/error-boundary';
 
 export default function NewPurchase() {
   const router = useRouter();
@@ -110,7 +111,8 @@ export default function NewPurchase() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <FormErrorBoundary>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Supplier Selection */}
             <div className="space-y-2">
               <Label htmlFor="supplierId">
@@ -319,7 +321,8 @@ export default function NewPurchase() {
                 )}
               </Button>
             </div>
-          </form>
+            </form>
+          </FormErrorBoundary>
         </CardContent>
       </Card>
     </div>

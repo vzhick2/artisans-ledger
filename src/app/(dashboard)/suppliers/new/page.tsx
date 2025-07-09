@@ -13,6 +13,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { ArrowLeft, Truck, Save, Loader2, AlertCircle } from 'lucide-react';
 import { supplierSchema, type SupplierFormData } from '@/lib/validations';
 import { useToast } from '@/hooks/use-toast';
+import { FormErrorBoundary } from '@/components/error-boundary';
 
 export default function NewSupplier() {
   const router = useRouter();
@@ -97,7 +98,8 @@ export default function NewSupplier() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <FormErrorBoundary>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Basic Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -242,7 +244,8 @@ export default function NewSupplier() {
                 )}
               </Button>
             </div>
-          </form>
+            </form>
+          </FormErrorBoundary>
         </CardContent>
       </Card>
     </div>

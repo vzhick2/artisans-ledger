@@ -15,6 +15,7 @@ import { sampleRecipes } from '@/lib/sample-data';
 import { ArrowLeft, FlaskConical, Save, Loader2, AlertCircle } from 'lucide-react';
 import { batchSchema, type BatchFormData } from '@/lib/validations';
 import { useToast } from '@/hooks/use-toast';
+import { FormErrorBoundary } from '@/components/error-boundary';
 
 export default function NewBatch() {
   const router = useRouter();
@@ -102,7 +103,8 @@ export default function NewBatch() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <FormErrorBoundary>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="recipeId">
@@ -232,7 +234,8 @@ export default function NewBatch() {
                 )}
               </Button>
             </div>
-          </form>
+            </form>
+          </FormErrorBoundary>
         </CardContent>
       </Card>
     </div>

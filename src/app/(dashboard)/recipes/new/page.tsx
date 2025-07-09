@@ -15,6 +15,7 @@ import { ArrowLeft, ChefHat, Save, Loader2, AlertCircle, Plus, Minus } from 'luc
 import { recipeSchema, type RecipeFormData } from '@/lib/validations';
 import { sampleItems } from '@/lib/sample-data';
 import { useToast } from '@/hooks/use-toast';
+import { FormErrorBoundary } from '@/components/error-boundary';
 
 const inventoryUnits = ["lbs", "oz", "kg", "g", "each", "gallon", "liter", "cup"];
 
@@ -114,7 +115,8 @@ export default function NewRecipe() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <FormErrorBoundary>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Basic Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -389,7 +391,8 @@ export default function NewRecipe() {
                 )}
               </Button>
             </div>
-          </form>
+            </form>
+          </FormErrorBoundary>
         </CardContent>
       </Card>
     </div>

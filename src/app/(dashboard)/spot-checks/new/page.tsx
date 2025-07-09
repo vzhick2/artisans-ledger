@@ -15,6 +15,7 @@ import { ArrowLeft, Search, Save, Loader2, AlertCircle } from 'lucide-react';
 import { spotCheckSchema, type SpotCheckFormData } from '@/lib/validations';
 import { sampleItems } from '@/lib/sample-data';
 import { useToast } from '@/hooks/use-toast';
+import { FormErrorBoundary } from '@/components/error-boundary';
 
 export default function NewSpotCheck() {
   const router = useRouter();
@@ -101,7 +102,8 @@ export default function NewSpotCheck() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <FormErrorBoundary>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Item Selection */}
             <div className="space-y-2">
               <Label htmlFor="itemId">
@@ -214,7 +216,8 @@ export default function NewSpotCheck() {
                 )}
               </Button>
             </div>
-          </form>
+            </form>
+          </FormErrorBoundary>
         </CardContent>
       </Card>
     </div>
