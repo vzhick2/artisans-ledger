@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useState, useMemo, useCallback, useEffect, memo } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useDebounce } from 'use-debounce';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -25,6 +25,7 @@ import {
   TableRow
 } from '@/components/ui/table';
 import { sampleItems, Item } from '@/lib/sample-data';
+import { usePerformanceLogger } from '@/lib/performance-utils';
 import {
   Search,
   Plus,
@@ -36,6 +37,94 @@ import {
   Eye
 } from 'lucide-react';
 
+// Memoized components for better performance
+const ItemCard = memo(({ item, onEdit, onArchive, onView }: {
+  item: Item;
+  onEdit: (item: Item) => void;
+  onArchive: (item: Item) => void;
+  onView: (item: Item) => void;
+}) => {
+  const getStatusBadge = useCallback((item: Item) => {
+    if (item.currentQuantity <= 0) {
+      return <Badge variant="destructive">Out of Stock</Badge>;
+    } else if (item.currentQuantity <= item.reorderPoint) {
+      return <Badge variant="secondary">Low Stock</Badge>;
+    } else {
+      return <Badge className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">In Stock</Badge>;
+    }
+  }, []);
+
+  const getStatusIcon = useCallback((item: Item) => {
+    if (item.currentQuantity <= 0) {
+      return <AlertTriangle className="h-4 w-4 text-red-500" />;
+    } else if (item.currentQuantity <= item.reorderPoint) {
+      return <AlertTriangle className="h-4 w-4 text-yellow-500" />;
+    } else {
+      return <CheckCircle className="h-4 w-4 text-green-500" />;
+    }
+  }, []);
+
+  return (
+    <Card className="hover:shadow-md transition-shadow">
+      <CardHeader className="pb-2">
+        <div className="flex items-start justify-between">
+          <div className="flex items-center gap-3 min-w-0 flex-1">
+            {getStatusIcon(item)}
+            <Package className="h-4 w-4 text-blue-500" />
+            <div className="min-w-0 flex-1">
+              <CardTitle className="text-sm font-medium truncate">{item.name}</CardTitle>
+              <p className="text-xs text-muted-foreground">SKU: {item.SKU} • {item.type}</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 flex-shrink-0">
+            {getStatusBadge(item)}
+            <div className="flex gap-1">
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => onView(item)}
+                aria-label={`View ${item.name} details`}
+              >
+                <Eye className="h-3 w-3" />
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => onEdit(item)}
+                aria-label={`Edit ${item.name}`}
+              >
+                <Edit className="h-3 w-3" />
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => onArchive(item)}
+                aria-label={`Archive ${item.name}`}
+              >
+                <Archive className="h-3 w-3" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </CardHeader>
+      <CardContent className="pt-0">
+        <div className="flex items-center justify-between text-sm">
+          <div className="flex items-center gap-4">
+            <span className="text-muted-foreground">
+              Qty: <span className="font-medium">{item.currentQuantity}</span> {item.inventoryUnit}
+            </span>
+            <span className="text-muted-foreground">
+              Reorder: <span className="font-medium">{item.reorderPoint}</span>
+            </span>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+});
+
+ItemCard.displayName = 'ItemCard';
+
 export default function Items() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -43,6 +132,9 @@ export default function Items() {
   const [typeFilter, setTypeFilter] = useState<string>('all');
   const [statusFilter, setStatusFilter] = useState<string>('all');
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+
+  // Performance logging in development
+  usePerformanceLogger('Items Page');
 
   // Handle URL query parameters
   useEffect(() => {
