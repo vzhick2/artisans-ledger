@@ -1,13 +1,25 @@
 {
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit"
+        "source.fixAll.eslint": "explicit",
+        "source.organizeImports": "explicit"
     },
     "editor.formatOnSave": true,
     "editor.quickSuggestions": {
         "strings": true
     },
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "editor.suggest.showSnippets": true,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
     "typescript.preferences.quoteStyle": "single",
     "typescript.suggest.completeFunctionCalls": true,
+    "typescript.suggest.autoImports": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.suggest.classMemberSnippets.enabled": true,
+    "javascript.suggest.autoImports": true,
     "github.copilot.enable": {
         "*": true,
         "plaintext": true,
@@ -20,15 +32,42 @@
         "**/.next": true,
         "**/node_modules": true,
         "**/.vercel": true,
-        "**/tsconfig.tsbuildinfo": true
+        "**/tsconfig.tsbuildinfo": true,
+        "**/.git": true,
+        "**/dist": true,
+        "**/build": true
     },
     "search.exclude": {
         "**/node_modules": true,
         "**/.next": true,
-        "**/package-lock.json": true
+        "**/package-lock.json": true,
+        "**/.git": true,
+        "**/dist": true,
+        "**/build": true
     },
     "emmet.includeLanguages": {
         "javascript": "javascriptreact",
         "typescript": "typescriptreact"
-    }
+    },
+    "files.associations": {
+        "*.tsx": "typescriptreact",
+        "*.ts": "typescript"
+    },
+    "typescript.inlayHints.parameterNames.enabled": "all",
+    "typescript.inlayHints.variableTypes.enabled": true,
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "tailwindCSS.includeLanguages": {
+        "typescript": "javascript",
+        "typescriptreact": "javascript"
+    },
+    "tailwindCSS.experimental.classRegex": [
+        ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+        ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+    ]
 }

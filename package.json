@@ -10,8 +10,22 @@
     "start": "next start",
     "start:mobile": "next start -H 0.0.0.0 -p 3000",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "type-check": "tsc --noEmit",
-    "vercel-build": "npm run build:fast"
+    "type-check:watch": "tsc --noEmit --watch",
+    "vercel-build": "npm run build:fast",
+    "clean": "rimraf .next out dist build",
+    "clean:deps": "rimraf node_modules package-lock.json && npm install",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,md}\"",
+    "analyze": "cross-env ANALYZE=true next build",
+    "analyze:bundle": "npx @next/bundle-analyzer",
+    "dev:debug": "NODE_OPTIONS='--inspect' next dev --turbopack",
+    "deploy": "npm run build && npx vercel --prod",
+    "deploy:preview": "npm run build && npx vercel",
+    "reset": "npm run clean && npm run clean:deps",
+    "check": "npm run type-check && npm run lint && npm run format:check",
+    "fix": "npm run lint:fix && npm run format"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",
