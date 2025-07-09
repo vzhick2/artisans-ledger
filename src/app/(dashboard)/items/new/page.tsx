@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Alert, AlertDescription } from '@/components/ui/alert';
+import { FormErrorBoundary } from '@/components/error-boundary';
 import { ArrowLeft, Package, Save, Loader2, AlertCircle } from 'lucide-react';
 import { itemSchema, type ItemFormData } from '@/lib/validations';
 import { useToast } from '@/hooks/use-toast';
@@ -102,7 +103,8 @@ export default function NewItem() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <FormErrorBoundary>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             {/* Basic Information */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -284,6 +286,7 @@ export default function NewItem() {
               </Button>
             </div>
           </form>
+          </FormErrorBoundary>
         </CardContent>
       </Card>
     </div>
